@@ -1,4 +1,13 @@
+# from turtle import *
+# import turtle
+from turtle import Turtle
 
+t = Turtle()
 
+t.forward(100)
+t.left(120)
+t.forward(100)
+t.left(120)
+t.forward(100)
 
-print('Hello Turtle Game!')
+input('Press Any Key: ')
