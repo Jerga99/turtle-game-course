@@ -4,8 +4,9 @@ from turtle import Turtle, Screen
 import random
 
 t = Turtle()
-screen = Screen()
+t.color('#3ff6ff')
 
+screen = Screen()
 screen.setup(800, 600)
 screen.title('Turtle Battles')
 screen.bgcolor('#000000')
@@ -18,4 +19,5 @@ for i in range(20):
     t.left(angle)
     t.fd(distance)
 
-input('Press Any Key: ')
+
+screen.mainloop()
