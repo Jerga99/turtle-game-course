@@ -1,9 +1,14 @@
 # from turtle import *
 # import turtle
-from turtle import Turtle
+from turtle import Turtle, Screen
 import random
 
 t = Turtle()
+screen = Screen()
+
+screen.setup(800, 600)
+screen.title('Turtle Battles')
+screen.bgcolor('#000000')
 
 t.speed(5)
 
