@@ -4,13 +4,11 @@ from window import Window
 player = Player()
 window = Window()
 
-player.setpos(-400, 300)
-player.setpos(400, 300)
-# player.setpos(0,0)
-player.home()
-
-player.setpos(-400, -300)
-player.setpos(400, -300)
-player.home()
+player.setpos(200, 0)
+player.setpos(200, 100)
+player.setpos(0, 100)
+player.setpos(0, 0)
+player.setpos(100, 100)
+player.setpos(200, 0)
 
 window.screen.mainloop()
