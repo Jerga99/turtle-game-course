@@ -4,11 +4,10 @@ from window import Window
 player = Player()
 window = Window()
 
-player.setpos(200, 0)
-player.setpos(200, 100)
-player.setpos(0, 100)
-player.setpos(0, 0)
-player.setpos(100, 100)
-player.setpos(200, 0)
+def move_up():
+    player.forward(20)
 
+window.screen.onkeypress(move_up, 'w')
+
+window.screen.listen()
 window.screen.mainloop()
