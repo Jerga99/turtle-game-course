@@ -1,19 +1,15 @@
-from turtle import Screen
 import random
 from player import Player
+from window import Window
 
-_player = Player()
-
-screen = Screen()
-screen.setup(800, 600)
-screen.title('Turtle Battles')
-screen.bgcolor('#000000')
+player = Player()
+window = Window()
 
 for i in range(20):
     distance = random.randint(50, 100)
     angle = random.randint(0, 90)
-    _player.left(angle)
-    _player.fd(distance)
+    player.left(angle)
+    player.fd(distance)
 
 
-screen.mainloop()
+window.screen.mainloop()
