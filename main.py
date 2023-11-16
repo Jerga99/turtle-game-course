@@ -1,24 +1,16 @@
 # from turtle import *
 # import turtle
 from turtle import Turtle
+import random
 
 t = Turtle()
 
-t.speed(1)
-t.forward(100)
-t.left(120)
-t.forward(100)
-t.left(120)
-t.forward(100)
+t.speed(5)
 
-# TODO: Create second triangle next to the first one
-
-t.left(240)
-# t.right(120)
-t.forward(100)
-t.left(120)
-t.forward(100)
-t.left(120)
-t.forward(100)
+for i in range(20):
+    distance = random.randint(50, 100)
+    angle = random.randint(0, 90)
+    t.left(angle)
+    t.fd(distance)
 
 input('Press Any Key: ')
