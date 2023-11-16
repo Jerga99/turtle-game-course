@@ -6,6 +6,7 @@ from player import Player
 
 _player = Player()
 
+
 screen = Screen()
 screen.setup(800, 600)
 screen.title('Turtle Battles')
