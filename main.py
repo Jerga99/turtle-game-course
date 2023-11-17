@@ -30,8 +30,8 @@ def start_game():
         nonlocal delta_time, last_frame_time
         time_now = time.time()
         delta_time = time_now - last_frame_time
-        player.update()
 
+        player.update(delta_time)
         window.screen.update()
 
         last_frame_time = time_now
