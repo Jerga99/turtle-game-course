@@ -27,6 +27,14 @@ def start_game():
     window.screen.onkeypress(move_left, 'a')
     window.screen.onkeypress(move_right, 'd')
 
+    def update_loop():
+
+        move_right()
+
+        window.screen.ontimer(update_loop, 10)
+
+    update_loop()
+
     window.screen.listen()
     window.screen.mainloop()
 

@@ -2,4 +2,4 @@
 
 
 
-DISTANCE_STEP = 5
+DISTANCE_STEP = 1
