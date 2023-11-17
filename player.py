@@ -17,9 +17,7 @@ class Player(Turtle):
     def move(self):
         _position = self.pos()
         _movement = self.direction * self.movement_speed
-
         self.setpos(_position + _movement)
-        print(self.pos())
 
     def update(self):
         self.move()

@@ -1,5 +1,6 @@
 from player import Player
 from window import Window
+import globals as g
 
 def start_game():
     player = Player()
@@ -22,11 +23,15 @@ def start_game():
     window.screen.onkeypress(move_left, 'a')
     window.screen.onkeypress(move_right, 'd')
 
+    print(f'FPS: {g.FPS}')
+    print(f'Frame Time Sec: {g.FRAME_TIME_SEC}')
+    print(f'Frame Time Ms: {g.FRAME_TIME_MS}')
+
     def update_loop():
         player.update()
 
         window.screen.update()
-        window.screen.ontimer(update_loop, 10)
+        window.screen.ontimer(update_loop, g.FRAME_TIME_MS)
 
     update_loop()
 
