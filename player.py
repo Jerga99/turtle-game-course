@@ -1,5 +1,5 @@
 
-from turtle import Turtle
+from turtle import Turtle, Vec2D
 
 class Player(Turtle):
     def __init__(self) -> None:
@@ -8,7 +8,11 @@ class Player(Turtle):
         self.shape('turtle')
         self.speed(0)
         self.penup()
-        self.direction: tuple[float, float] = (1,0)
+        self.direction = Vec2D(1,0)
+
+    def move(self):
+        self.setpos(self.pos() + self.direction)
 
     def update(self):
-        self.setpos(self.pos() + self.direction)
+        self.move()
+
