@@ -9,12 +9,17 @@ class Player(Turtle):
         self.speed(0)
         self.penup()
         self.direction = Vec2D(0,0)
+        self.movement_speed = 2
 
     def set_direction(self, x: float, y: float):
         self.direction = Vec2D(x,y)
 
     def move(self):
-        self.setpos(self.pos() + self.direction)
+        _position = self.pos()
+        _movement = self.direction * self.movement_speed
+
+        self.setpos(_position + _movement)
+        print(self.pos())
 
     def update(self):
         self.move()

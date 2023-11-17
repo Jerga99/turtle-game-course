@@ -24,6 +24,8 @@ def start_game():
 
     def update_loop():
         player.update()
+
+        window.screen.update()
         window.screen.ontimer(update_loop, 10)
 
     update_loop()

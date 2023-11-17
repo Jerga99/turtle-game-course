@@ -7,3 +7,4 @@ class Window:
         self.screen.setup(800, 600)
         self.screen.title('Turtle Battles')
         self.screen.bgcolor('#000000')
+        self.screen.tracer(0)
