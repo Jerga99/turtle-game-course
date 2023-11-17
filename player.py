@@ -6,4 +6,5 @@ class Player(Turtle):
         super().__init__()
         self.color('#3ff6ff')
         self.shape('turtle')
-        self.speed(3)
+        self.speed(0)
+        self.penup()
