@@ -8,7 +8,10 @@ class Player(Turtle):
         self.shape('turtle')
         self.speed(0)
         self.penup()
-        self.direction = Vec2D(1,0)
+        self.direction = Vec2D(0,0)
+
+    def set_direction(self, x: float, y: float):
+        self.direction = Vec2D(x,y)
 
     def move(self):
         self.setpos(self.pos() + self.direction)
