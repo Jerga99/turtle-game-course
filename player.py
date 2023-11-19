@@ -6,6 +6,12 @@ from game_time import GameTime
 def magnitude(vector: Vec2D):
     return math.sqrt(vector[0] ** 2 + vector[1] ** 2)
 
+def normalize(vector: Vec2D, mag: float):
+    if mag > 0:
+        return Vec2D(vector[0] / mag, vector[1] / mag)
+
+    return vector
+
 class Player(Turtle):
     def __init__(self) -> None:
         super().__init__()
@@ -21,10 +27,9 @@ class Player(Turtle):
 
     def move(self):
         _position = self.pos()
-        _movement = self.direction * (self.movement_speed * GameTime.delta_time)
-
         mag = magnitude(self.direction)
-        print(f'Magnitude: {mag}')
+        normalized = normalize(self.direction, mag)
+        _movement = normalized * (self.movement_speed * GameTime.delta_time)
 
         self.setpos(_position + _movement)
 
