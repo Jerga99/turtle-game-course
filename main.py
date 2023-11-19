@@ -1,7 +1,6 @@
 
 from player import Player
 from enemy import Enemy
-from game_entity import GameEntity
 from ui import UI
 from window import Window
 from game_time import GameTime
@@ -9,22 +8,22 @@ from watched_key import WatchedKey
 from utils import handle_movement
 import globals as g
 
-def restart_game(player: GameEntity, enemy: GameEntity):
-    player.restart()
-    enemy.restart()
+def restart_game(*entities):
+    for e in entities:
+        e.restart()
     g.GAME_OVER = False
 
 def quit_game(*_):
     exit()
 
 def start_game():
+    window = Window()
     player = Player()
     enemy = Enemy(target=player)
     ui = UI(
-        restart_callback=lambda *_: restart_game(player, enemy),
+        restart_callback=lambda *_: restart_game(player, enemy, ui),
         quit_callback=quit_game
     )
-    window = Window()
 
     w = WatchedKey('w')
     a = WatchedKey('a')

@@ -23,3 +23,7 @@ class UI:
         self.accept_btn.showturtle()
         self.decline_btn.showturtle()
 
+    def restart(self):
+        self.restart_text.clear()
+        self.accept_btn.hideturtle()
+        self.decline_btn.hideturtle()
