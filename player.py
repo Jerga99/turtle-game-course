@@ -1,5 +1,6 @@
 
 from turtle import Turtle, Vec2D
+from game_time import GameTime
 
 class Player(Turtle):
     def __init__(self) -> None:
@@ -14,11 +15,11 @@ class Player(Turtle):
     def set_direction(self, x: float, y: float):
         self.direction = Vec2D(x,y)
 
-    def move(self, delta_time: float):
+    def move(self):
         _position = self.pos()
-        _movement = self.direction * (self.movement_speed * delta_time)
+        _movement = self.direction * (self.movement_speed * GameTime.delta_time)
         self.setpos(_position + _movement)
 
-    def update(self, delta_time: float):
-        self.move(delta_time)
+    def update(self):
+        self.move()
 

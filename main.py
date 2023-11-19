@@ -1,13 +1,13 @@
-import time
+
 from player import Player
 from window import Window
+from game_time import GameTime
 import globals as g
 
 def start_game():
     player = Player()
     window = Window()
     last_frame_time = 0
-    delta_time = 0
 
     def move_up():
         player.set_direction(0, 1)
@@ -27,17 +27,17 @@ def start_game():
     window.screen.onkeypress(move_right, 'd')
 
     def update_loop():
-        nonlocal delta_time, last_frame_time
-        time_now = time.time()
-        delta_time = time_now - last_frame_time
+        nonlocal last_frame_time
+        time_now = GameTime.get_time_now()
+        GameTime.delta_time = time_now - last_frame_time
 
-        player.update(delta_time)
+        player.update()
         window.screen.update()
 
         last_frame_time = time_now
         window.screen.ontimer(update_loop, g.FRAME_TIME_MS)
 
-    last_frame_time = time.time()
+    last_frame_time = GameTime.get_time_now()
     update_loop()
 
     window.screen.listen()
