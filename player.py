@@ -36,14 +36,16 @@ class Player(Turtle):
 
         target_angle = self.towards(self.pos() + normalized_dir)
         current_angle = self.heading()
+
         angle_difference = target_angle - current_angle
+        angle_difference = (angle_difference + 180) % 360 - 180
+
         turn_step = 360 * GameTime.delta_time
         real_step = min(turn_step, abs(angle_difference))
 
-        if current_angle < target_angle:
-            self.setheading(current_angle + real_step)
-        elif current_angle > target_angle:
-            self.setheading(current_angle - real_step)
+        if angle_difference != 0:
+            new_heading = current_angle + real_step * (1 if angle_difference > 0 else -1)
+            self.setheading(new_heading)
 
         self.setpos(position + movement)
 
