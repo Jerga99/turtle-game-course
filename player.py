@@ -1,6 +1,10 @@
 
+import math
 from turtle import Turtle, Vec2D
 from game_time import GameTime
+
+def magnitude(vector: Vec2D):
+    return math.sqrt(vector[0] ** 2 + vector[1] ** 2)
 
 class Player(Turtle):
     def __init__(self) -> None:
@@ -18,6 +22,10 @@ class Player(Turtle):
     def move(self):
         _position = self.pos()
         _movement = self.direction * (self.movement_speed * GameTime.delta_time)
+
+        mag = magnitude(self.direction)
+        print(f'Magnitude: {mag}')
+
         self.setpos(_position + _movement)
 
     def update(self):
