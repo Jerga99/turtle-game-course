@@ -3,6 +3,7 @@ from player import Player
 from window import Window
 from game_time import GameTime
 from watched_key import WatchedKey
+from utils import handle_movement
 import globals as g
 
 def start_game():
@@ -17,16 +18,7 @@ def start_game():
     def update_loop():
         GameTime.process_time()
 
-        player.set_direction(0,0)
-
-        if w.down:
-            player.set_direction(0,1)
-        if s.down:
-            player.set_direction(0,-1)
-        if a.down:
-            player.set_direction(-1,0)
-        if d.down:
-            player.set_direction(1,0)
+        handle_movement(w,a,s,d, player=player)
 
         player.update()
         window.screen.update()
