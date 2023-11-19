@@ -1,13 +1,8 @@
-from turtle import Turtle
+from game_entity import GameEntity
 
-class Enemy(Turtle):
+class Enemy(GameEntity):
     def __init__(self):
         super().__init__()
-        self.color('red')
-        self.shape('square')
-        self.speed(0)
-        self.penup()
-        self.movement_speed = 200
         self.setpos(200,200)
 
     def update(self):
