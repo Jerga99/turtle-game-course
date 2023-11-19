@@ -8,10 +8,19 @@ from watched_key import WatchedKey
 from utils import handle_movement
 import globals as g
 
+def restart_game(*_):
+    print('Game Restart!')
+
+def quit_game(*_):
+    exit()
+
 def start_game():
     player = Player()
     enemy = Enemy(target=player)
-    ui = UI()
+    ui = UI(
+        restart_callback=restart_game,
+        quit_callback=quit_game
+    )
     window = Window()
 
     w = WatchedKey('w')
