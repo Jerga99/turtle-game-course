@@ -12,8 +12,8 @@ class Player(Turtle):
         self.direction = Vec2D(0,0)
         self.movement_speed = 200 # pixels per second
 
-    def set_direction(self, x: float, y: float):
-        self.direction = Vec2D(x,y)
+    def set_direction(self, direction: Vec2D):
+        self.direction = direction
 
     def move(self):
         _position = self.pos()
