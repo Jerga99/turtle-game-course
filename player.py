@@ -26,12 +26,15 @@ class Player(Turtle):
         self.direction = direction
 
     def move(self):
-        _position = self.pos()
+        position = self.pos()
         mag = magnitude(self.direction)
-        normalized = normalize(self.direction, mag)
-        _movement = normalized * (self.movement_speed * GameTime.delta_time)
+        normalized_dir = normalize(self.direction, mag)
+        movement = normalized_dir * (self.movement_speed * GameTime.delta_time)
 
-        self.setpos(_position + _movement)
+        target_angle = self.towards(self.pos() + normalized_dir)
+        self.setheading(target_angle)
+
+        self.setpos(position + movement)
 
     def update(self):
         self.move()
