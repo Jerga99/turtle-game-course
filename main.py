@@ -9,7 +9,7 @@ import globals as g
 
 def start_game():
     player = Player()
-    enemy = Enemy()
+    enemy = Enemy(target=player)
     window = Window()
 
     w = WatchedKey('w')
@@ -23,6 +23,7 @@ def start_game():
         handle_movement(w,a,s,d, player=player)
 
         player.update()
+        enemy.update()
         window.screen.update()
 
         window.screen.ontimer(update_loop, g.FRAME_TIME_MS)
