@@ -9,30 +9,24 @@ def start_game():
     player = Player()
     window = Window()
 
-    # def move_up():
-    #     player.set_direction(0, 1)
-
-    # def move_down():
-    #     player.set_direction(0, -1)
-
-    # def move_left():
-    #     player.set_direction(-1, 0)
-
-    # def move_right():
-    #     player.set_direction(1, 0)
-
-    # onkeypress(move_up, 'w')
-    # onkeypress(move_down, 's')
-    # onkeypress(move_left, 'a')
-    # onkeypress(move_right, 'd')
-
-    space = WatchedKey('space')
     w = WatchedKey('w')
+    a = WatchedKey('a')
+    s = WatchedKey('s')
+    d = WatchedKey('d')
 
     def update_loop():
         GameTime.process_time()
 
-        print(f'W is down: {w.down}')
+        player.set_direction(0,0)
+
+        if w.down:
+            player.set_direction(0,1)
+        if s.down:
+            player.set_direction(0,-1)
+        if a.down:
+            player.set_direction(-1,0)
+        if d.down:
+            player.set_direction(1,0)
 
         player.update()
         window.screen.update()
