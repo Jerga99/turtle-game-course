@@ -1,8 +1,7 @@
 
-from turtle import Vec2D
 from player import Player
 from enemy import Enemy
-from text import Text
+from ui import UI
 from window import Window
 from game_time import GameTime
 from watched_key import WatchedKey
@@ -12,7 +11,7 @@ import globals as g
 def start_game():
     player = Player()
     enemy = Enemy(target=player)
-    restart_text = Text('Restart?', Vec2D(0,0))
+    ui = UI()
     window = Window()
 
     w = WatchedKey('w')
@@ -24,7 +23,7 @@ def start_game():
         GameTime.process_time()
 
         if g.GAME_OVER:
-            restart_text.show_text()
+            ui.show_gameover()
         else:
             handle_movement(w,a,s,d, player=player)
             player.update()
