@@ -20,12 +20,16 @@ class Player(GameEntity):
         self.shape('turtle')
         self.direction = Vec2D(0,0)
         self.movement_speed = 200 # pixels per second
+        self.is_dead = False
 
     def set_direction(self, direction: Vec2D):
         self.direction = direction
 
+    def take_damage(self):
+        self.is_dead = True
+
     def move(self):
-        if self.direction == Vec2D(0,0):
+        if self.is_dead or self.direction == Vec2D(0,0):
             return
 
         position = self.pos()
