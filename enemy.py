@@ -1,3 +1,4 @@
+import random
 from game_entity import GameEntity
 from game_time import GameTime
 
@@ -20,8 +21,10 @@ class Enemy(GameEntity):
 
         if self.timer >= self.jump_interval:
             self.timer = 0
-            jump_position = self.target.pos() + (70,70)
-            # self.teleport(jump_position[0], jump_position[1])
+            self.jump_interval = random.randint(2, 5)
+            x = random.randint(-70, 70)
+            y = 70 if random.randint(0,1) == 0 else -70
+            jump_position = self.target.pos() + (x, y)
             self.teleport(*jump_position)
 
 
