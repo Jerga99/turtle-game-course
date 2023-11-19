@@ -9,10 +9,8 @@ from utils import handle_movement
 import globals as g
 
 def restart_game(player, enemy):
-    def restart(*_):
-        print(player)
-        print(enemy)
-    return restart
+    print(player)
+    print(enemy)
 
 def quit_game(*_):
     exit()
@@ -21,7 +19,7 @@ def start_game():
     player = Player()
     enemy = Enemy(target=player)
     ui = UI(
-        restart_callback=restart_game(player, enemy),
+        restart_callback=lambda *_: restart_game(player, enemy),
         quit_callback=quit_game
     )
     window = Window()
