@@ -1,5 +1,6 @@
 
 from player import Player
+from enemy import Enemy
 from window import Window
 from game_time import GameTime
 from watched_key import WatchedKey
@@ -8,6 +9,7 @@ import globals as g
 
 def start_game():
     player = Player()
+    enemy = Enemy()
     window = Window()
 
     w = WatchedKey('w')
