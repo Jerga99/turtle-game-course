@@ -26,13 +26,24 @@ class Player(Turtle):
         self.direction = direction
 
     def move(self):
+        if self.direction == Vec2D(0,0):
+            return
+
         position = self.pos()
         mag = magnitude(self.direction)
         normalized_dir = normalize(self.direction, mag)
         movement = normalized_dir * (self.movement_speed * GameTime.delta_time)
 
         target_angle = self.towards(self.pos() + normalized_dir)
-        self.setheading(target_angle)
+        current_angle = self.heading()
+        angle_difference = target_angle - current_angle
+        turn_step = 360 * GameTime.delta_time
+        real_step = min(turn_step, abs(angle_difference))
+
+        if current_angle < target_angle:
+            self.setheading(current_angle + real_step)
+        elif current_angle > target_angle:
+            self.setheading(current_angle - real_step)
 
         self.setpos(position + movement)
 
