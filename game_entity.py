@@ -12,5 +12,8 @@ class GameEntity(Turtle):
     def take_damage(self):
         pass
 
+    def restart(self):
+        pass
+
     def update(self):
         pass

@@ -16,6 +16,9 @@ class Enemy(GameEntity):
         self.setheading(new_heading)
         self.forward(self.movement_speed * GameTime.delta_time)
 
+    def restart(self):
+        self.setpos(200,200)
+
     def update(self):
         self.timer += GameTime.delta_time
 

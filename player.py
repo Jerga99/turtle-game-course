@@ -28,6 +28,9 @@ class Player(GameEntity):
     def take_damage(self):
         g.GAME_OVER = True
 
+    def restart(self):
+        self.home()
+
     def move(self):
         if self.direction == Vec2D(0,0):
             return
