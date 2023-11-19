@@ -20,12 +20,15 @@ def start_game():
     def update_loop():
         GameTime.process_time()
 
-        handle_movement(w,a,s,d, player=player)
+        if g.GAME_OVER:
+            # Display some UI informing the player that the game is over
+            pass
+        else:
+            handle_movement(w,a,s,d, player=player)
+            player.update()
+            enemy.update()
 
-        player.update()
-        enemy.update()
         window.screen.update()
-
         window.screen.ontimer(update_loop, g.FRAME_TIME_MS)
 
     GameTime.init()

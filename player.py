@@ -3,6 +3,7 @@ import math
 from turtle import Vec2D
 from game_entity import GameEntity
 from game_time import GameTime
+import globals as g
 
 def magnitude(vector: Vec2D):
     return math.sqrt(vector[0] ** 2 + vector[1] ** 2)
@@ -20,16 +21,15 @@ class Player(GameEntity):
         self.shape('turtle')
         self.direction = Vec2D(0,0)
         self.movement_speed = 200 # pixels per second
-        self.is_dead = False
 
     def set_direction(self, direction: Vec2D):
         self.direction = direction
 
     def take_damage(self):
-        self.is_dead = True
+        g.GAME_OVER = True
 
     def move(self):
-        if self.is_dead or self.direction == Vec2D(0,0):
+        if self.direction == Vec2D(0,0):
             return
 
         position = self.pos()
