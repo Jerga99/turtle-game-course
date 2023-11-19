@@ -1,6 +1,8 @@
 
+from turtle import Vec2D
 from player import Player
 from enemy import Enemy
+from text import Text
 from window import Window
 from game_time import GameTime
 from watched_key import WatchedKey
@@ -10,6 +12,7 @@ import globals as g
 def start_game():
     player = Player()
     enemy = Enemy(target=player)
+    text = Text('Restart?', Vec2D(100,100))
     window = Window()
 
     w = WatchedKey('w')

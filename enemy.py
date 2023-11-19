@@ -27,8 +27,6 @@ class Enemy(GameEntity):
             jump_position = self.target.pos() + (x, y)
             self.teleport(*jump_position)
 
-        print(self.distance(self.target.pos()))
-
         if self.distance(self.target.pos()) <= 15:
             self.target.take_damage()
 
