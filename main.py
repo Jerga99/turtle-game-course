@@ -12,7 +12,7 @@ import globals as g
 def start_game():
     player = Player()
     enemy = Enemy(target=player)
-    text = Text('Restart?', Vec2D(100,100))
+    restart_text = Text('Restart?', Vec2D(0,0))
     window = Window()
 
     w = WatchedKey('w')
@@ -24,8 +24,7 @@ def start_game():
         GameTime.process_time()
 
         if g.GAME_OVER:
-            # Display some UI informing the player that the game is over
-            pass
+            restart_text.show_text()
         else:
             handle_movement(w,a,s,d, player=player)
             player.update()

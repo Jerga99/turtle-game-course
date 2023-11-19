@@ -6,7 +6,9 @@ class Text(Turtle):
         super().__init__()
         self.color('white')
         self.penup()
-        # self.teleport(*pos)
         self.setpos(pos)
         self.hideturtle()
-        self.write(text, font=('Arial', 15, 'normal'), align='center')
+        self.text = text
+
+    def show_text(self):
+        self.write(self.text, font=('Arial', 15, 'normal'), align='center')
